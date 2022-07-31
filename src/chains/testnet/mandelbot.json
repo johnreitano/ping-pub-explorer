@@ -1,0 +1,28 @@
+{
+  "chain_name": "mandelbot",
+  "coingecko": "mandelbot",
+  "api": ["https://testnet-seed-0-api.mandelbot.oktryme.com"],
+  "rpc": ["https://testnet-seed-0-rpc.mandelbot.oktryme.com:26657"],
+  "snapshot_provider": "",
+  "sdk_version": "0.45.4",
+  "coin_type": "118",
+  "min_tx_fee": "800",
+  "addr_prefix": "mandelbot",
+  "logo": "/logos/mandelbot.png",
+  "assets": [
+    {
+      "base": "mandelbot",
+      "symbol": "MANDELBOT",
+      "exponent": "6",
+      "coingecko_id": "",
+      "logo": "/logos/mandelbot.png"
+    },
+    {
+      "base": "smandelbot",
+      "symbol": "STAKE",
+      "exponent": "6",
+      "coingecko_id": "",
+      "logo": "/logos/smandelbot.png"
+    }
+  ]
+}
