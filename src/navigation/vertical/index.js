@@ -66,19 +66,20 @@ function processMenu() {
       }
     })
     menu.children = children
+    menu.isChain = true
     chainMenus.push(menu)
   })
   chainMenus.push({ header: 'LINKS' })
   if (isTestnet()) {
     chainMenus.push({
       title: 'Mainnet Explorer',
-      href: 'https://ping.pub',
+      href: 'https://explorer.mandelbot.oktryme.com',
       icon: 'ChromeIcon',
     })
   } else {
     chainMenus.push({
       title: 'Testnet Explorer',
-      href: 'http://testnet.ping.pub',
+      href: 'https://testnet-explorer.mandelbot.oktryme.com',
       icon: 'LifeBuoyIcon',
     })
   }

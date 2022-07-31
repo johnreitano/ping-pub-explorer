@@ -72,6 +72,12 @@ module.exports = {
   },
   transpileDependencies: ['vue-echarts', 'resize-detector'],
   devServer: {
+    allowedHosts: ["all"],
+    port: 443,
+    https: {
+      key: require("fs").readFileSync("/home/ubuntu/cert/privkey.pem"),
+      cert: require("fs").readFileSync("/home/ubuntu/cert/fullchain.pem"),
+    },
     proxy: {
       '/api': {
         target: 'https://cosmos.api.ping.pub/',

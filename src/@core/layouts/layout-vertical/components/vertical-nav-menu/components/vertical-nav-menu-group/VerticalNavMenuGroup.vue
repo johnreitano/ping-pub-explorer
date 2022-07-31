@@ -12,6 +12,7 @@
       class="d-flex align-items-center"
       @click="() => updateGroupOpen(!isOpen)"
     >
+      <!--
       <b-avatar
         variant="transparent"
         :src="item.icon"
@@ -19,8 +20,9 @@
         size="sm"
         class="mr-1"
       />
+      -->
 
-      <span class="menu-title text-truncate text-uppercase">{{ item.title }}</span>
+      <span class="menu-title text-truncate text-uppercase">{{ mainnetOrTestnet }}</span>
       <b-badge
         v-if="item.tag"
         pill
@@ -55,6 +57,7 @@ import { useUtils as useI18nUtils } from '@core/libs/i18n'
 import { useUtils as useAclUtils } from '@core/libs/acl'
 import VerticalNavMenuHeader from '../vertical-nav-menu-header'
 import VerticalNavMenuLink from '../vertical-nav-menu-link/VerticalNavMenuLink.vue'
+import { isTestnet } from '@/libs/utils'
 
 // Composition Function
 import useVerticalNavMenuGroup from './useVerticalNavMenuGroup'
@@ -87,6 +90,7 @@ export default {
 
     const { t } = useI18nUtils()
     const { canViewVerticalNavMenuGroup } = useAclUtils()
+    const mainnetOrTestnet = isTestnet() ? 'TESTNET' : 'MAINNET'
 
     return {
       resolveNavItemComponent,
@@ -94,6 +98,7 @@ export default {
       isActive,
       updateGroupOpen,
       updateIsActive,
+      mainnetOrTestnet,
 
       // ACL
       canViewVerticalNavMenuGroup,

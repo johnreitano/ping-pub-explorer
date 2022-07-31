@@ -22,16 +22,16 @@
           <li class="nav-item mr-auto">
             <b-link
               class="navbar-brand"
-              to="/"
+              to="/mandelbot"
             >
               <span class="brand-logo">
                 <b-img
-                  :src="appLogoImage"
+                  :src="selectedChainLogo"
                   alt="logo"
                 />
               </span>
               <h2 class="brand-text">
-                {{ appName }}
+                {{ selectedChainName.toUpperCase() }}
               </h2>
             </b-link>
           </li>
@@ -91,6 +91,7 @@ import useAppConfig from '@core/app-config/useAppConfig'
 import { $themeConfig } from '@themeConfig'
 import VerticalNavMenuItems from './components/vertical-nav-menu-items/VerticalNavMenuItems.vue'
 import useVerticalNavMenu from './useVerticalNavMenu'
+import { isTestnet } from '@/libs/utils'
 
 export default {
   components: {
@@ -165,8 +166,16 @@ export default {
       preload.push(current)
       return preload
     },
+    selectedChainName() {
+      const selectedChain = this.$store?.state?.chains?.selected
+      return selectedChain?.chain_name
+    },
+    selectedChainLogo() {
+      const selectedChain = this.$store?.state?.chains?.selected
+      return selectedChain?.logo
+    },
     options() {
-      return navMenuItems.map(x => {
+      return navMenuItems.filter(x => !x.isChain).map(x => {
         if (x.children) {
           return { title: x.title, logo: x.icon, route: x.children[0].route }
         }
