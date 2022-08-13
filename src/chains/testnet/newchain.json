@@ -18,11 +18,11 @@
       "logo": "/logos/newchain.png"
     },
     {
-      "base": "snewchain",
-      "symbol": "STAKE",
+      "base": "newchainstake",
+      "symbol": "NEWCHAINSTAKE",
       "exponent": "6",
       "coingecko_id": "",
-      "logo": "/logos/snewchain.png"
+      "logo": "/logos/newchainstake.png"
     }
   ]
 }
