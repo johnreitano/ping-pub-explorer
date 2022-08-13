@@ -1,300 +1,300 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import store from '../store'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import store from "../store";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   scrollBehavior() {
-    return { x: 0, y: 0 }
+    return { x: 0, y: 0 };
   },
   routes: [
     {
-      path: '/',
-      redirect: '/mandelbot',
+      path: "/",
+      redirect: "/newchain",
     },
     {
-      path: '/coffee',
-      name: 'coffee',
-      component: () => import('@core/layouts/components/Coffee.vue'),
+      path: "/coffee",
+      name: "coffee",
+      component: () => import("@core/layouts/components/Coffee.vue"),
       meta: {
-        pageTitle: 'Donation',
+        pageTitle: "Donation",
         breadcrumb: [
           {
-            text: 'Buy me a cup of coffee!',
+            text: "Buy me a cup of coffee!",
             active: false,
           },
         ],
       },
     },
     {
-      path: '/wallet/accounts',
-      alias: '/wallet',
-      name: 'accounts',
-      component: () => import('@/views/WalletAccounts.vue'),
+      path: "/wallet/accounts",
+      alias: "/wallet",
+      name: "accounts",
+      component: () => import("@/views/WalletAccounts.vue"),
       meta: {
-        pageTitle: 'Accounts',
+        pageTitle: "Accounts",
         breadcrumb: [
           {
-            text: 'Accounts',
+            text: "Accounts",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/wallet/import',
-      name: 'accounts-import',
-      component: () => import('@/views/WalletAccountImportAddress.vue'),
+      path: "/wallet/import",
+      name: "accounts-import",
+      component: () => import("@/views/WalletAccountImportAddress.vue"),
       meta: {
-        pageTitle: 'Accounts',
+        pageTitle: "Accounts",
         breadcrumb: [
           {
-            text: 'Import',
+            text: "Import",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/wallet/delegations',
-      name: 'delegations',
-      component: () => import('@/views/WalletDelegations.vue'),
+      path: "/wallet/delegations",
+      name: "delegations",
+      component: () => import("@/views/WalletDelegations.vue"),
       meta: {
-        pageTitle: 'My Delegations',
+        pageTitle: "My Delegations",
         breadcrumb: [
           {
-            text: 'Wallet',
+            text: "Wallet",
           },
           {
-            text: 'My Delegations',
+            text: "My Delegations",
           },
         ],
       },
     },
     {
-      path: '/wallet/transactions',
-      name: 'mytransactions',
-      component: () => import('@/views/WalletTransactions.vue'),
+      path: "/wallet/transactions",
+      name: "mytransactions",
+      component: () => import("@/views/WalletTransactions.vue"),
       meta: {
-        pageTitle: 'Transaction History',
+        pageTitle: "Transaction History",
         breadcrumb: [
           {
-            text: 'Wallet',
+            text: "Wallet",
           },
           {
-            text: 'Transaction History',
+            text: "Transaction History",
           },
         ],
       },
     },
     {
-      path: '/wallet/votes',
-      name: 'myVotes',
-      component: () => import('@/views/WalletVotes.vue'),
+      path: "/wallet/votes",
+      name: "myVotes",
+      component: () => import("@/views/WalletVotes.vue"),
       meta: {
-        pageTitle: 'My Votes',
+        pageTitle: "My Votes",
         breadcrumb: [
           {
-            text: 'Wallet',
+            text: "Wallet",
           },
           {
-            text: 'My Votes',
+            text: "My Votes",
           },
         ],
       },
     },
     // chain modules
     {
-      path: '/:chain/',
-      name: 'info',
-      alias: '/:chain',
-      component: () => import('@/views/Summary.vue'),
+      path: "/:chain/",
+      name: "info",
+      alias: "/:chain",
+      component: () => import("@/views/Summary.vue"),
       meta: {
-        pageTitle: 'Home',
+        pageTitle: "Home",
         breadcrumb: [
           {
-            text: 'Home',
+            text: "Home",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/:chain/statesync',
-      name: 'statesync',
-      component: () => import('@/views/StateSync.vue'),
+      path: "/:chain/statesync",
+      name: "statesync",
+      component: () => import("@/views/StateSync.vue"),
       meta: {
-        pageTitle: 'State Sync',
+        pageTitle: "State Sync",
         breadcrumb: [
           {
-            text: 'State Synchronization',
+            text: "State Synchronization",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/:chain/uptime',
-      name: 'uptime',
-      component: () => import('@/views/Uptime.vue'),
+      path: "/:chain/uptime",
+      name: "uptime",
+      component: () => import("@/views/Uptime.vue"),
       meta: {
-        pageTitle: 'Uptime',
+        pageTitle: "Uptime",
         breadcrumb: [
           {
-            text: 'Uptime',
+            text: "Uptime",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/:chain/uptime/my',
-      name: 'myuptime',
-      component: () => import('@/views/UptimeMyValidators.vue'),
+      path: "/:chain/uptime/my",
+      name: "myuptime",
+      component: () => import("@/views/UptimeMyValidators.vue"),
       meta: {
-        pageTitle: 'Uptime',
+        pageTitle: "Uptime",
         breadcrumb: [
           {
-            text: 'Uptime',
+            text: "Uptime",
             active: true,
           },
           {
-            text: 'My Validators',
+            text: "My Validators",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/:chain/account/:address',
-      name: 'chain-account',
-      component: () => import('@/views/WalletAccountDetail.vue'),
+      path: "/:chain/account/:address",
+      name: "chain-account",
+      component: () => import("@/views/WalletAccountDetail.vue"),
       meta: {
-        pageTitle: 'Accounts',
+        pageTitle: "Accounts",
         breadcrumb: [
           {
-            text: 'Accounts',
+            text: "Accounts",
             active: true,
           },
           {
-            text: 'Detail',
+            text: "Detail",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/:chain/staking',
-      name: 'staking',
-      component: () => import('@/views/Staking.vue'),
+      path: "/:chain/staking",
+      name: "staking",
+      component: () => import("@/views/Staking.vue"),
       meta: {
-        pageTitle: 'Staking',
+        pageTitle: "Staking",
         breadcrumb: [
           {
-            text: 'Staking',
+            text: "Staking",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/:chain/staking/:address',
-      name: 'staking-valiator',
-      component: () => import('@/views/StakingValidator.vue'),
+      path: "/:chain/staking/:address",
+      name: "staking-valiator",
+      component: () => import("@/views/StakingValidator.vue"),
       meta: {
-        pageTitle: 'Staking Validator',
+        pageTitle: "Staking Validator",
         breadcrumb: [
           {
-            text: 'Staking',
+            text: "Staking",
             active: true,
           },
           {
-            text: 'Validator',
+            text: "Validator",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/:chain/gov',
-      name: 'governance',
-      component: () => import('@/views/Governance.vue'),
+      path: "/:chain/gov",
+      name: "governance",
+      component: () => import("@/views/Governance.vue"),
       meta: {
-        pageTitle: 'Governance',
+        pageTitle: "Governance",
         breadcrumb: [
           {
-            text: 'Governance',
+            text: "Governance",
             active: true,
           },
           {
-            text: 'Proposals',
+            text: "Proposals",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/:chain/gov/:proposalid',
-      name: 'proposal',
-      component: () => import('@/views/GovernanceProposalView.vue'),
+      path: "/:chain/gov/:proposalid",
+      name: "proposal",
+      component: () => import("@/views/GovernanceProposalView.vue"),
       meta: {
-        pageTitle: 'Governance',
+        pageTitle: "Governance",
         breadcrumb: [
           {
-            text: 'Governance',
+            text: "Governance",
             active: true,
           },
           {
-            text: 'Proposal Detail',
+            text: "Proposal Detail",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/:chain/blocks',
-      name: 'blocks',
-      component: () => import('@/views/Blocks.vue'),
+      path: "/:chain/blocks",
+      name: "blocks",
+      component: () => import("@/views/Blocks.vue"),
       meta: {
-        pageTitle: 'Blocks',
+        pageTitle: "Blocks",
         breadcrumb: [
           {
-            text: 'Blocks',
+            text: "Blocks",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/:chain/blocks/:height',
-      name: 'block',
-      component: () => import('@/views/Block.vue'),
+      path: "/:chain/blocks/:height",
+      name: "block",
+      component: () => import("@/views/Block.vue"),
       meta: {
-        pageTitle: 'Block',
+        pageTitle: "Block",
         breadcrumb: [
           {
-            text: 'Blocks',
+            text: "Blocks",
             active: true,
           },
           {
-            text: 'Block',
+            text: "Block",
             active: true,
           },
         ],
       },
     },
     {
-      path: '/:chain/tx/:hash',
-      name: 'transaction',
-      component: () => import('@/views/Transaction.vue'),
+      path: "/:chain/tx/:hash",
+      name: "transaction",
+      component: () => import("@/views/Transaction.vue"),
       meta: {
-        pageTitle: 'Transaction',
+        pageTitle: "Transaction",
         breadcrumb: [
           {
-            text: 'Transaction',
+            text: "Transaction",
             active: true,
           },
         ],
@@ -303,14 +303,14 @@ const router = new VueRouter({
     // custom modules for specified chains
     // 1. cosmos
     {
-      path: '/:chain/cosmos/trade',
-      name: 'gravity',
-      component: () => import('@/views/GravityPool.vue'),
+      path: "/:chain/cosmos/trade",
+      name: "gravity",
+      component: () => import("@/views/GravityPool.vue"),
       meta: {
-        pageTitle: 'Gravity Pools',
+        pageTitle: "Gravity Pools",
         breadcrumb: [
           {
-            text: 'Gravity',
+            text: "Gravity",
             active: true,
           },
         ],
@@ -318,18 +318,18 @@ const router = new VueRouter({
     },
     // 2. OSMOSIS
     {
-      path: '/:chain/osmosis/trade/:poolid?',
-      name: 'osmosis-trade',
-      component: () => import('@/views/OsmosisTrade.vue'),
+      path: "/:chain/osmosis/trade/:poolid?",
+      name: "osmosis-trade",
+      component: () => import("@/views/OsmosisTrade.vue"),
       meta: {
-        pageTitle: 'Classic Trade',
+        pageTitle: "Classic Trade",
         breadcrumb: [
           {
-            text: 'DEX',
+            text: "DEX",
             active: true,
           },
           {
-            text: 'Classic Trade',
+            text: "Classic Trade",
             active: true,
           },
         ],
@@ -337,70 +337,70 @@ const router = new VueRouter({
     },
     // common modules
     {
-      path: '/tools/consensus-states',
-      name: 'consensus',
-      component: () => import('@/views/ConsensusStates.vue'),
+      path: "/tools/consensus-states",
+      name: "consensus",
+      component: () => import("@/views/ConsensusStates.vue"),
       meta: {
-        layout: 'full',
+        layout: "full",
       },
     },
     {
-      path: '/error/error-404',
-      name: 'error-404',
-      component: () => import('@/views/error/Error404.vue'),
+      path: "/error/error-404",
+      name: "error-404",
+      component: () => import("@/views/error/Error404.vue"),
       meta: {
-        layout: 'full',
+        layout: "full",
       },
     },
     {
-      path: '/error/chain-not-exists',
-      name: 'chain-404',
-      component: () => import('@/views/error/ChainNotExist.vue'),
+      path: "/error/chain-not-exists",
+      name: "chain-404",
+      component: () => import("@/views/error/ChainNotExist.vue"),
       meta: {
-        layout: 'full',
+        layout: "full",
       },
     },
     {
-      path: '/index.php',
-      redirect: '/',
+      path: "/index.php",
+      redirect: "/",
     },
     {
-      path: '*',
-      redirect: '/error/error-404',
+      path: "*",
+      redirect: "/error/error-404",
     },
   ],
-})
+});
 
 router.beforeEach((to, from, next) => {
-  const c = to.params.chain
+  const c = to.params.chain;
   if (c) {
-    store.commit('select', { chain_name: c })
-    store.dispatch('chains/getAllIBCDenoms', Vue.prototype)
+    store.commit("select", { chain_name: c });
+    store.dispatch("chains/getAllIBCDenoms", Vue.prototype);
   }
 
-  const config = JSON.parse(localStorage.getItem('chains'))
+  const config = JSON.parse(localStorage.getItem("chains"));
   // const has = Object.keys(config).findIndex(i => i === c)
-  if (!config || Object.keys(config).findIndex(i => i === c) > -1) {
-    next()
+  if (!config || Object.keys(config).findIndex((i) => i === c) > -1) {
+    next();
   } else if (c) {
-    if (c === 'index.php') {
-      next({ name: '/' })
+    if (c === "index.php") {
+      next({ name: "/" });
     } else {
-      next({ name: 'chain-404' })
+      next({ name: "chain-404" });
     }
   } else {
-    next()
+    next();
   }
-})
+});
 
 // ? For splash screen
 // Remove afterEach hook if you are not using splash screen
 router.afterEach(() => {
   // Remove initial loading
-  const appLoading = document.getElementById('loading-bg')
+  const appLoading = document.getElementById("loading-bg");
   if (appLoading) {
-    appLoading.style.display = 'none'
+    appLoading.style.display = "none";
   }
-})
+});
 
-export default router
+export default router;

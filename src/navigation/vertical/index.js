@@ -1,105 +1,105 @@
-import store from '@/store'
-import { isTestnet } from '../../libs/utils'
+import store from "@/store";
+import { isTestnet } from "../../libs/utils";
 
 const modules = [
   {
-    scope: 'normal',
-    title: 'summary',
-    route: 'info',
+    scope: "normal",
+    title: "summary",
+    route: "info",
   },
   {
-    scope: 'normal',
-    title: 'blocks',
-    route: 'blocks',
+    scope: "normal",
+    title: "blocks",
+    route: "blocks",
   },
   {
-    scope: 'normal',
-    title: 'staking',
-    route: 'staking',
+    scope: "normal",
+    title: "staking",
+    route: "staking",
   },
   {
-    scope: 'normal',
-    title: 'governance',
-    route: 'governance',
-    exclude: 'emoney',
+    scope: "normal",
+    title: "governance",
+    route: "governance",
+    exclude: "emoney",
   },
   {
-    scope: 'normal',
-    title: 'uptime',
-    route: 'uptime',
+    scope: "normal",
+    title: "uptime",
+    route: "uptime",
   },
   {
-    scope: 'normal',
-    title: 'statesync',
-    route: 'statesync',
+    scope: "normal",
+    title: "statesync",
+    route: "statesync",
   },
   {
-    scope: 'cos-mos',
-    title: 'gravity',
-    route: 'gravity',
+    scope: "cos-mos",
+    title: "gravity",
+    route: "gravity",
   },
   {
-    scope: 'osmosis',
-    title: 'trade',
-    route: 'osmosis-trade',
+    scope: "osmosis",
+    title: "trade",
+    route: "osmosis-trade",
   },
-]
+];
 
 function processMenu() {
-  const chainMenus = []
-  Object.keys(store.state.chains.config).forEach(chain => {
+  const chainMenus = [];
+  Object.keys(store.state.chains.config).forEach((chain) => {
     const menu = {
       title: chain,
       icon: store.state.chains.config[chain].logo,
-    }
-    const { excludes } = store.state.chains.config[chain]
-    const children = []
-    modules.forEach(m => {
+    };
+    const { excludes } = store.state.chains.config[chain];
+    const children = [];
+    modules.forEach((m) => {
       if (excludes === undefined || excludes.indexOf(m.route) === -1) {
-        if (m.scope.match('normal') || m.scope.match(chain)) {
+        if (m.scope.match("normal") || m.scope.match(chain)) {
           children.push({
-          // header: `item-${chain}-${m.route}`,
+            // header: `item-${chain}-${m.route}`,
             title: m.title,
             route: { name: m.route, params: { chain } },
-          })
+          });
         }
       }
-    })
-    menu.children = children
-    menu.isChain = true
-    chainMenus.push(menu)
-  })
-  chainMenus.push({ header: 'LINKS' })
+    });
+    menu.children = children;
+    menu.isChain = true;
+    chainMenus.push(menu);
+  });
+  chainMenus.push({ header: "LINKS" });
   if (isTestnet()) {
     chainMenus.push({
-      title: 'Mainnet Explorer',
-      href: 'https://explorer.mandelbot.oktryme.com',
-      icon: 'ChromeIcon',
-    })
+      title: "Mainnet Explorer",
+      href: "https://explorer.newchain.oktryme.com",
+      icon: "ChromeIcon",
+    });
   } else {
     chainMenus.push({
-      title: 'Testnet Explorer',
-      href: 'https://testnet-explorer.mandelbot.oktryme.com',
-      icon: 'LifeBuoyIcon',
-    })
+      title: "Testnet Explorer",
+      href: "https://testnet-explorer.newchain.oktryme.com",
+      icon: "LifeBuoyIcon",
+    });
   }
   chainMenus.push({
-    title: 'Discord',
-    href: 'https://discord.gg/CmjYVSr6GW',
-    icon: 'EyeIcon',
-  })
+    title: "Discord",
+    href: "https://discord.gg/CmjYVSr6GW",
+    icon: "EyeIcon",
+  });
   chainMenus.push({
-    title: 'Twitter',
-    href: 'https://twitter.com/ping_pub',
-    icon: 'TwitterIcon',
-  })
+    title: "Twitter",
+    href: "https://twitter.com/ping_pub",
+    icon: "TwitterIcon",
+  });
   chainMenus.push({
-    title: 'Github',
-    href: 'https://github.com/ping-pub/explorer',
-    icon: 'GithubIcon',
-  })
+    title: "Github",
+    href: "https://github.com/ping-pub/explorer",
+    icon: "GithubIcon",
+  });
 
-  return chainMenus
+  return chainMenus;
 }
 
-export default processMenu()
+export default processMenu();

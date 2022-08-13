@@ -1,28 +1,28 @@
 {
-  "chain_name": "mandelbot",
-  "coingecko": "mandelbot",
-  "api": ["https://testnet2-seed-0-api.mandelbot.oktryme.com"],
-  "rpc": ["https://testnet2-seed-0-rpc.mandelbot.oktryme.com:26657"],
+  "chain_name": "newchain",
+  "coingecko": "newchain",
+  "api": ["https://testnet2-seed-0-api.newchain.oktryme.com"],
+  "rpc": ["https://testnet2-seed-0-rpc.newchain.oktryme.com:26657"],
   "snapshot_provider": "",
   "sdk_version": "0.45.4",
   "coin_type": "118",
   "min_tx_fee": "800",
-  "addr_prefix": "mandelbot",
-  "logo": "/logos/mandelbot.png",
+  "addr_prefix": "newchain",
+  "logo": "/logos/newchain.png",
   "assets": [
     {
-      "base": "mandelbot",
-      "symbol": "MANDELBOT",
+      "base": "newchain",
+      "symbol": "NEWCHAIN",
       "exponent": "6",
       "coingecko_id": "",
-      "logo": "/logos/mandelbot.png"
+      "logo": "/logos/newchain.png"
     },
     {
-      "base": "smandelbot",
+      "base": "snewchain",
       "symbol": "STAKE",
       "exponent": "6",
       "coingecko_id": "",
-      "logo": "/logos/smandelbot.png"
+      "logo": "/logos/snewchain.png"
     }
   ]
 }

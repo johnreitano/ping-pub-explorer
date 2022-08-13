@@ -1,7 +1,5 @@
 {
-  "message": {
-
-  },
+  "message": {},
   "cosmos": "Cosmos Hub",
   "kava": "Kava",
   "akash-network": "Akash Decloud",
@@ -32,8 +30,8 @@
   "microtick": "Microtick",
   "odin": "ODIN",
   "chihuahua": "CHIHUAHUA",
-  "mandelbot": "Mandelbot",
-  
+  "newchain": "Newchain",
+
   "staking": "Staking",
   "governance": "Governance",
   "summary": "Summary",
@@ -62,5 +60,4 @@
   "btn_deposit": "Deposit",
   "btn_detail": "Detail",
   "btn_back_list": "Back To List"
-  
 }
