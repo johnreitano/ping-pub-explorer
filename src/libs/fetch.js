@@ -64,7 +64,7 @@ export default class ChainFetch {
     if (conf.chain_name === 'injective') {
       return ChainFetch.fetch('https://tm.injective.network', '/block').then(data => Block.create(commonProcess(data)))
     }
-    return this.get(`/blocks/latest?${new Date().getTime()}`, config).then(data => Block.create(data))
+    return this.get(`/cosmos/base/tendermint/v1beta1/blocks/latest?${new Date().getTime()}`, config).then(data => Block.create(data))
   }
 
   async getBlockByHeight(height, config = null) {
