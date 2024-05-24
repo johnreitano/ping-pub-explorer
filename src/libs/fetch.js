@@ -128,7 +128,7 @@ export default class ChainFetch {
   }
 
   async getStakingPool() {
-    return this.get('/cosmos/staking/v1beta/pool').then(data => new StakingPool().init(commonProcess(data)))
+    return this.get('/cosmos/staking/v1beta1/pool').then(data => new StakingPool().init(commonProcess(data)))
   }
 
   async getMintingInflation() {
@@ -139,7 +139,7 @@ export default class ChainFetch {
       return this.get('/echelon/inflation/v1/inflation_rate').then(data => Number(data.inflation_rate / 100 || 0))
     }
     if (this.isModuleLoaded('minting')) {
-      return this.get('/cosmos/mint/v1beta/inflation').then(data => Number(commonProcess(data)))
+      return this.get('/cosmos/mint/v1beta1/inflation').then(data => Number(commonProcess(data)))
     }
     return 0
   }
@@ -361,14 +361,14 @@ export default class ChainFetch {
   }
 
   async getAuthAccount(address, config = null) {
-    return this.get('/cosmos/auth/v1beta/accounts/'.concat(address), config).then(data => {
+    return this.get('/cosmos/auth/v1beta1/accounts/'.concat(address), config).then(data => {
       const result = commonProcess(data)
       return result.value ? result : { value: result }
     })
   }
 
   async getBankAccountBalance(address) {
-    return this.get('/cosmos/bank/v1beta/balances/'.concat(address)).then(data => commonProcess(data))
+    return this.get('/cosmos/bank/v1beta1/balances/'.concat(address)).then(data => commonProcess(data))
   }
 
   async getStakingReward(address, config = null) {
