@@ -73,13 +73,13 @@ function processMenu() {
   if (isTestnet()) {
     chainMenus.push({
       title: "Mainnet Explorer",
-      href: "https://explorer.newchain.oktryme.com",
+      href: "https://explorer.newchain.newdomain.com",
       icon: "ChromeIcon",
     });
   } else {
     chainMenus.push({
       title: "Testnet Explorer",
-      href: "https://testnet-explorer.newchain.oktryme.com",
+      href: "https://testnet-explorer.newchain.newdomain.com",
       icon: "LifeBuoyIcon",
     });
   }
