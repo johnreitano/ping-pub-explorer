@@ -238,15 +238,15 @@ export default class ChainFetch {
   }
 
   async getGovernanceParameterDeposit() {
-    return this.get('/gov/parameters/deposit').then(data => commonProcess(data))
+    return this.get('/cosmos/gov/v1/params/deposit').then(data => commonProcess(data))
   }
 
   async getGovernanceParameterTallying() {
-    return this.get('/gov/parameters/tallying').then(data => commonProcess(data))
+    return this.get('/cosmos/gov/v1/params/tallying').then(data => commonProcess(data))
   }
 
   async getGovernanceParameterVoting() {
-    return this.get('/gov/parameters/voting').then(data => commonProcess(data))
+    return this.get('/cosmos/gov/v1/params/voting').then(data => commonProcess(data))
   }
 
   async getGovernanceTally(pid, total, conf) {
