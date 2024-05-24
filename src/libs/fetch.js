@@ -228,13 +228,13 @@ export default class ChainFetch {
       return result
     }
     if (this.isModuleLoaded('minting')) {
-      return this.get('/minting/parameters').then(data => commonProcess(data))
+      return this.get('/cosmos/mint/v1beta1/params').then(data => commonProcess(data))
     }
     return null
   }
 
   async getDistributionParameters() {
-    return this.get('/distribution/parameters').then(data => commonProcess(data))
+    return this.get('/cosmos/distribution/v1beta1/params').then(data => commonProcess(data))
   }
 
   async getGovernanceParameterDeposit() {
